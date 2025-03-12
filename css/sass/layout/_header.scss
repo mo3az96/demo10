@@ -1,0 +1,114 @@
+header {
+  position: relative;
+  z-index: 15;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 48px;
+  padding: 30px 0;
+  position: relative;
+  @include xl {
+    gap: 98px;
+  }
+  @include sm {
+    gap: 10px 30px;
+  }
+  @include xs {
+    padding: 10px 0;
+  }
+  @include xxs {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.logo {
+  width: 60px;
+  aspect-ratio: 60/69;
+  display: flex;
+  align-items: center;
+  margin-inline-end: auto;
+  @include xs {
+    width: 50px;
+  }
+  @include xxs {
+    order: 1;
+    margin: 0;
+  }
+}
+
+.header-tools {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  @include md {
+    gap: 23px;
+  }
+  @include xxs {
+    order: 2;
+    gap: 30px;
+  }
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #3f0d97;
+  font-size: 20px;
+  position: relative;
+  transition: all 0.3s ease-in-out;
+  @include xxs {
+    font-size: 22px;
+  }
+  &:focus {
+    color: #3f0d97;
+  }
+  &:hover {
+    color: $primaryColor;
+  }
+  .icon-count {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+    min-width: 16px;
+    aspect-ratio: 1;
+    background-color: $primaryColor;
+    color: #fff;
+    font-size: 10px;
+    padding: 3px;
+    border-radius: 50%;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.header-localization {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+  margin-inline-start: 15px;
+  @include md {
+    margin: 0;
+  }
+  @include xs {
+    display: none;
+    gap: 15px;
+  }
+}
+.header-whislist {
+  @include sm {
+    display: none;
+  }
+}
+
+.menu-btn {
+  display: none;
+  @include xs {
+    display: flex;
+  }
+}

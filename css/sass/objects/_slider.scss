@@ -1,0 +1,89 @@
+.custom-slider {
+  position: relative;
+
+  .swiper-button {
+    position: absolute;
+    margin: 0;
+    top: 110px;
+    background-color: transparent;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #808080;
+    transition: all 0.3s ease-in-out;
+    &::after {
+      display: none;
+    }
+    &.swiper-button-prev {
+      right: -40px;
+      left: auto;
+    }
+    &.swiper-button-next {
+      left: -40px;
+      right: auto;
+    }
+    &:hover {
+      color: $primaryColor;
+    }
+    &.swiper-button-disabled {
+      display: none;
+    }
+    @media (max-width: 1499px) and (min-width: 1450px) {
+      display: none;
+    }
+    @media (max-width: 1230px) {
+      display: none;
+    }
+  }
+  .swiper-pagination {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+
+    .swiper-pagination-bullet {
+      width: 10px;
+      aspect-ratio: 1;
+      height: auto;
+      border-radius: 50%;
+      background-color: rgb(0, 0, 0);
+      opacity: 0.5;
+      margin: 0;
+      transition: all 0.3s ease-in-out;
+
+      &.swiper-pagination-bullet-active,
+      &:hover {
+        background-color: $primaryColor;
+        opacity: 1;
+      }
+    }
+  }
+}
+.main-slider {
+  .swiper-pagination {
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: 0;
+    @include sm {
+      bottom: 10px;
+    }
+  }
+}
+
+.brands-slider {
+  .swiper-button {
+    top: 75px;
+  }
+  .swiper-pagination {
+    display: none;
+  }
+}

@@ -1,0 +1,61 @@
+.features-content {
+  display: flex;
+  gap: 9px;
+  padding: 10px;
+  background-color: $triaryColor;
+  @include xl {
+    padding: 14px 30px;
+  }
+  @include md {
+    padding: 0;
+  }
+  @include sm {
+    padding: 0 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  @include xs {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+.feature-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  height: 100px;
+  padding: 0 10px;
+  @include xl {
+    padding: 0 17px;
+  }
+  .feature-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    @include xs {
+      width: 54px;
+      aspect-ratio: 54/39;
+    }
+  }
+  .feature-text {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .feature-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: $textColor;
+    margin: 0;
+  }
+  .feature-desc {
+    font-size: 16px;
+    font-weight: 400;
+    color: $textColor;
+    margin: 0;
+  }
+}

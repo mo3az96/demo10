@@ -1,0 +1,357 @@
+.header-nav {
+  background-color: $secondaryColor;
+  @include sm {
+    .container {
+      width: 100%;
+      padding: 0;
+    }
+  }
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 30px;
+  min-height: 35px;
+  @include sm {
+    gap: 15px;
+  }
+  li {
+  }
+  .nav-a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+    @include sm {
+      font-size: 14px;
+    }
+    &:focus {
+      color: #fff;
+    }
+    &:hover {
+      color: $triaryColor;
+    }
+  }
+}
+
+.nav_categories-item {
+  position: relative;
+  width: 241px;
+  max-width: 18%;
+  min-width: 200px;
+  @include sm {
+    min-width: 180px;
+  }
+  .nav_categories-toggle {
+    padding: 0 16px;
+    min-height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    background-color: rgba(#000, 15%);
+    @include sm {
+      font-size: 15px;
+      padding: 0 10px;
+      min-height: 45px;
+    }
+    &::before,
+    &::after {
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 400;
+    }
+    &::before {
+      content: "\f0c9";
+      font-size: 16px;
+    }
+    &::after {
+      content: "\f0d7";
+      font-size: 11px;
+      margin-inline-end: 2px;
+      margin-inline-start: auto;
+    }
+    &:hover {
+      background-color: rgba(#000, 25%);
+      color: #fff;
+    }
+  }
+  &:hover {
+    .nav_categories-toggle {
+      background-color: rgba(#000, 25%);
+      color: #fff;
+    }
+  }
+}
+
+.nav_categories-list {
+  position: absolute;
+  top: 100%;
+  inset-inline-start: 0;
+  width: 100%;
+  background-color: #fff;
+  padding: 9px 11px;
+  width: 100%;
+  display: none;
+  li {
+    padding: 7px 4px;
+    border-bottom: 1px solid #ededf0;
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  a {
+    font-size: 14px;
+    font-weight: 500;
+    color: $textColor;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+      color: $textColor;
+      &::after {
+        color: #bfbfbf;
+      }
+    }
+    &:hover {
+      color: $primaryColor;
+      &::after {
+        color: $triaryColor;
+      }
+    }
+  }
+}
+
+.nav_children-list {
+  position: absolute;
+  top: 0;
+  inset-inline-start: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  padding: 9px 11px;
+  width: 100%;
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  li {
+    padding: 7px 4px;
+    border-bottom: 1px solid #ededf0;
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  a {
+    font-size: 14px;
+    font-weight: 400;
+    color: #808080;
+    transition: all 0.3s ease-in-out;
+    &:focus {
+      color: #808080;
+    }
+    &:hover {
+      color: $primaryColor;
+    }
+  }
+}
+
+.has-children {
+  > a {
+    &::after {
+      font-family: "Font Awesome 6 Pro";
+      font-weight: 400;
+      content: "\f0d7";
+      font-size: 11px;
+      color: #bfbfbf;
+      transition: all 0.3s ease-in-out;
+      @include rtl {
+        transform: rotate(90deg);
+      }
+      @include ltr {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+  &:hover {
+    > a {
+      color: $primaryColor;
+    }
+    .nav_children-list {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 183px;
+  inset-inline-start: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.2;
+  display: none;
+  @include sm {
+    top: 174px;
+  }
+}
+.nav-head {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 0 0;
+  .header-localization {
+    display: flex;
+  }
+  .close-btn {
+    color: #7b7b7b;
+    opacity: 0.5;
+  }
+}
+@include xs {
+  .header-nav {
+    position: fixed;
+    top: 0;
+    inset-inline-start: -300px;
+    // inset-inline-start: 0;
+    height: 100vh;
+    width: 300px;
+    background-color: #fff;
+    border: none;
+    z-index: 99;
+    padding: 20px 20px 70px;
+    overflow-y: auto;
+    transition: all 0.3s ease-in-out;
+
+    &.active {
+      inset-inline-start: 0;
+    }
+  }
+  .nav-head {
+    display: flex;
+  }
+  .nav-list {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 35px 0 20px;
+    .nav-a {
+      font-size: 16px;
+      color: $textColor;
+      &:focus,
+      &:hover {
+        color: $textColor;
+      }
+    }
+  }
+  .nav_categories-item {
+    width: 100%;
+    max-width: 100%;
+    .nav_categories-toggle {
+      padding: 0;
+      min-height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: 700;
+      color: $textColor;
+      background-color: transparent;
+      &::after {
+        font-size: 14px;
+        transition: all 0.3s ease-in-out;
+      }
+      &:hover {
+        background-color: transparent;
+        color: $textColor;
+      }
+      &.active {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+    &:hover {
+      .nav_categories-toggle {
+        background-color: transparent;
+        color: $textColor;
+      }
+    }
+  }
+  .nav_categories-list {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    padding: 10px 15px 0;
+    li {
+      padding: 7px 0;
+      border-bottom: none;
+    }
+    a {
+      &::after {
+        color: $textColor;
+        @include rtl {
+          transform: rotate(0);
+        }
+        @include ltr {
+          transform: rotate(0);
+        }
+      }
+      &.active {
+        &::after {
+          @include rtl {
+            transform: rotate(180deg);
+          }
+          @include ltr {
+            transform: rotate(180deg);
+          }
+        }
+      }
+      &:focus {
+        &::after {
+          color: $textColor;
+        }
+      }
+      &:hover {
+        color: $textColor;
+        &::after {
+          color: $textColor;
+        }
+      }
+    }
+  }
+  .nav_children-list {
+    position: relative;
+    inset: unset;
+    width: 100%;
+    visibility: visible;
+    opacity: 1;
+    padding: 10px 15px 0;
+    display: none;
+    transition: none;
+    li {
+      padding: 7px 0;
+      border-bottom: none;
+    }
+    a {
+      &:hover {
+        color: #808080;
+      }
+    }
+  }
+  .nav-overlay {
+    opacity: 0.9;
+    top: 0;
+    z-index: 98;
+  }
+}
